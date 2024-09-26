@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signup'])) {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Insert user details into the database
+        // Insert database
         $sql = "INSERT INTO student (name, email, password) VALUES ('$name', '$email', '$hashed_password')";
 
         if (mysqli_query($connection, $sql)) {
