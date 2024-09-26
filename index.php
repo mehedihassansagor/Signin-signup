@@ -42,11 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])) {
 
             // Verify the password
             if (password_verify($password, $user['password'])) {
-                // Set a session variable to indicate the user is signed in
-                $_SESSION['user'] = $user['name'];  // You can store the user's name or other info
-                $_SESSION['message'] = "Your sign in is complete!";  // Message to show after sign in
-                
-                // Redirect to the same page or a new page to show the message
+                $_SESSION['user'] = $user['name'];  
+                $_SESSION['message'] = "Your sign in is complete!";  
                 header("Location: index.php");
                 exit();
             } 
@@ -93,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['signin'])) {
                         <div class="alert alert-success">
                             <?= $_SESSION['message']; ?>
                         </div>
-                        <?php unset($_SESSION['message']); // Clear the message after showing it ?>
+                        <?php unset($_SESSION['message']); 
                     <?php endif; ?>
 
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
